@@ -9,19 +9,22 @@ services:
     environment:
       # example: everyday at midnight
       - SCHEDULE=0 0 * * *
+    # the web server is available on the container's port 80
+    expose:
+      - 80
+    # publish the web server on 8080, for test purposes only - remove this in production and place behind a
+    # reverse proxy instead
     ports:
-      # example 80 -> 80
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host
+      # expose on 8080
+      - 8080:80
     volumes:
-      # example: scan the whole root partition
-      - type: bind
-        source: /
-        target: /scan/root
-        read_only: true
-      # example: store the database outside the container
-      - type: volume
-        source: duc_database
-        target: /database
+      # scan the whole root partition
+      - /:/scan/root:ro
+      # store the database outside the container
+      - duc_database:/database
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    external: true

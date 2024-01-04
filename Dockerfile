@@ -1,4 +1,4 @@
-ARG UBUNTU_VERSION=18.04
+ARG UBUNTU_VERSION=22.04
 
 ####################################
 # Temporary image for building Duc #
@@ -37,9 +37,9 @@ FROM ubuntu:${UBUNTU_VERSION}
 
 ARG BUILD_DATE
 ARG VCS_REF
-LABEL maintainer="Maximilian Köstler <maximilian@koestler.dev>" \
+LABEL maintainer="Jon Davies <jon@hedgerows.org.uk>" \
       org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.vcs-url="https://github.com/MaximilianKoestler/duc-service.git" \
+      org.label-schema.vcs-url="https://github.com/jon-hedgerows/duc-service.git" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0-rc1"
 
