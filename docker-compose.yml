@@ -6,6 +6,7 @@ volumes:
 services:
   duc-service:
     build: .
+    image: uk-cardiff-1.ocir.io/ax39baacthsg/duc/duc-service:latest
     environment:
       # example: everyday at midnight
       - SCHEDULE=0 0 * * *
